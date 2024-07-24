@@ -19,5 +19,5 @@ store.dispatch(operator("*"));
 store.dispatch(number(4));
 store.dispatch(number(5));
 store.dispatch(back());
-store.dispatch(equal());
-store.dispatch(clear());
+// store.dispatch(equal());
+// store.dispatch(clear());
