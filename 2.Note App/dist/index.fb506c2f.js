@@ -32371,7 +32371,6 @@ var _s = $RefreshSig$();
 const Home = ()=>{
     _s();
     const todo = (0, _reactRedux.useSelector)((state)=>state.todo);
-    console.log(todo);
     const dispatch = (0, _reactRedux.useDispatch)();
     const { register, handleSubmit } = (0, _reactHookForm.useForm)();
     const onSubmit = (data)=>{
@@ -32382,21 +32381,21 @@ const Home = ()=>{
         }));
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "home bg-red-300",
+        className: "home bg-gray-100 min-h-screen flex flex-col items-center py-10",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "form-todo ",
+                className: "form-todo w-full max-w-md bg-white shadow-md rounded-md p-5",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                        className: "text-3xl",
+                        className: "text-2xl font-bold text-center mb-5",
                         children: "Create Your Todo-List"
                     }, void 0, false, {
                         fileName: "components/Note.jsx",
-                        lineNumber: 27,
+                        lineNumber: 21,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                        className: "form",
+                        className: "form space-y-4",
                         onSubmit: handleSubmit((data, e)=>{
                             onSubmit(data);
                             e.target.reset();
@@ -32404,119 +32403,120 @@ const Home = ()=>{
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 ...register("title"),
-                                placeholder: "Title"
+                                placeholder: "Title",
+                                className: "w-full px-3 py-2 border border-gray-300 rounded-md"
                             }, void 0, false, {
                                 fileName: "components/Note.jsx",
-                                lineNumber: 35,
+                                lineNumber: 31,
                                 columnNumber: 11
-                            }, undefined),
-                            " ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                                fileName: "components/Note.jsx",
-                                lineNumber: 35,
-                                columnNumber: 64
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 ...register("description"),
-                                placeholder: "Description"
+                                placeholder: "Description",
+                                className: "w-full px-3 py-2 border border-gray-300 rounded-md"
                             }, void 0, false, {
                                 fileName: "components/Note.jsx",
                                 lineNumber: 36,
                                 columnNumber: 11
                             }, undefined),
-                            " ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                                fileName: "components/Note.jsx",
-                                lineNumber: 37,
-                                columnNumber: 11
-                            }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                 type: "submit",
+                                className: "w-full bg-purple-500 text-white py-2 rounded-md",
                                 children: "Create"
                             }, void 0, false, {
                                 fileName: "components/Note.jsx",
-                                lineNumber: 38,
+                                lineNumber: 41,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "components/Note.jsx",
-                        lineNumber: 28,
+                        lineNumber: 24,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "components/Note.jsx",
-                lineNumber: 26,
+                lineNumber: 20,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "list-todo",
+                className: "list-todo w-full max-w-md mt-10 space-y-4",
                 children: todo.map((todo)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         id: "box",
+                        className: "bg-white shadow-md rounded-md p-4 flex justify-between items-center",
                         children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                                children: todo.title
-                            }, void 0, false, {
-                                fileName: "components/Note.jsx",
-                                lineNumber: 45,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                children: todo.description
-                            }, void 0, false, {
-                                fileName: "components/Note.jsx",
-                                lineNumber: 46,
-                                columnNumber: 13
-                            }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "btn",
                                 children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                        onClick: (e)=>{
-                                            dispatch((0, _noteApp.completeTodo)({
-                                                id: todo.id,
-                                                completed: true
-                                            }));
-                                        },
-                                        style: {
-                                            backgroundColor: todo.completed ? "green" : ""
-                                        },
-                                        children: todo.completed ? "Completed" : "Complete"
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                                        className: `text-lg font-semibold ${todo.completed ? "line-through" : ""}`,
+                                        children: todo.title
                                     }, void 0, false, {
                                         fileName: "components/Note.jsx",
-                                        lineNumber: 48,
+                                        lineNumber: 58,
                                         columnNumber: 15
                                     }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                        onClick: ()=>dispatch((0, _noteApp.removeTodo)(todo.id)),
-                                        children: "Delete"
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        className: `text-gray-600 ${todo.completed ? "line-through" : ""}`,
+                                        children: todo.description
                                     }, void 0, false, {
                                         fileName: "components/Note.jsx",
-                                        lineNumber: 56,
+                                        lineNumber: 65,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "components/Note.jsx",
-                                lineNumber: 47,
+                                lineNumber: 57,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "btn flex space-x-2",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        onClick: (e)=>{
+                                            dispatch((0, _noteApp.completeTodo)({
+                                                id: todo.id,
+                                                completed: !todo.completed
+                                            }));
+                                        },
+                                        className: `px-3 py-1 rounded-md ${todo.completed ? "bg-green-500 text-white" : "bg-gray-200"}`,
+                                        children: todo.completed ? "Completed" : "Complete"
+                                    }, void 0, false, {
+                                        fileName: "components/Note.jsx",
+                                        lineNumber: 74,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        onClick: ()=>dispatch((0, _noteApp.removeTodo)(todo.id)),
+                                        className: "px-3 py-1 bg-red-500 text-white rounded-md",
+                                        children: "Delete"
+                                    }, void 0, false, {
+                                        fileName: "components/Note.jsx",
+                                        lineNumber: 86,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "components/Note.jsx",
+                                lineNumber: 73,
                                 columnNumber: 13
                             }, undefined)
                         ]
                     }, todo.id, true, {
                         fileName: "components/Note.jsx",
-                        lineNumber: 44,
+                        lineNumber: 52,
                         columnNumber: 11
                     }, undefined))
             }, void 0, false, {
                 fileName: "components/Note.jsx",
-                lineNumber: 42,
+                lineNumber: 50,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "components/Note.jsx",
-        lineNumber: 25,
+        lineNumber: 19,
         columnNumber: 5
     }, undefined);
 };
