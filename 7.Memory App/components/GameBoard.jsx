@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Card from "./card";
+import Card from "./Card";
+
 const cardImages = [
-  { src: "/img/image1.png", matched: false },
-  { src: "/img/image2.png", matched: false },
-  // Add more images here
+  { text: "A", matched: false },
+  { text: "B", matched: false },
+  { text: "C", matched: false },
+  { text: "D", matched: false },
+  { text: "E", matched: false },
+  { text: "F", matched: false },
 ];
 
 const GameBoard = () => {
@@ -33,10 +37,10 @@ const GameBoard = () => {
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       setDisabled(true);
-      if (choiceOne.src === choiceTwo.src) {
+      if (choiceOne.text === choiceTwo.text) {
         setCards((prevCards) => {
           return prevCards.map((card) => {
-            if (card.src === choiceOne.src) {
+            if (card.text === choiceOne.text) {
               return { ...card, matched: true };
             } else {
               return card;
@@ -57,7 +61,7 @@ const GameBoard = () => {
   };
 
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
       {cards.map((card) => (
         <Card
           key={card.id}

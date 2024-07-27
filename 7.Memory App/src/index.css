@@ -2,5 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 .flipped {
-  transform: rotateY(180deg);
+  background-color: #bfdbfe; /* Light blue background */
 }
