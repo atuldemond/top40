@@ -7,6 +7,10 @@ app.get("/", (req, res) => {
   res.send("You are on  Home page Bro  ");
 });
 
+app.get("/about", (req, res) => {
+  res.send("This is Home Page");
+});
+
 app.get("*", (req, res) => {
   res.send("Page Not found you are not entering worng url ");
 });
